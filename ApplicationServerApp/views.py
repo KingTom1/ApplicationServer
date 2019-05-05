@@ -53,6 +53,8 @@ def Login(request):
             jsonStr = json.loads(serializers.serialize("json", username))
             for i in range(len(jsonStr)):
                 response['list'+str(i)] = jsonStr[i]['fields']
+                response['error_num'] = 1
     except Exception as e:
         response['msg'] = str(e)
+        response['error_num'] = 0
     return JsonResponse(response)
