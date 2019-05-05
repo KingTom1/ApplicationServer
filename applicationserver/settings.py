@@ -92,9 +92,15 @@ DATABASES = {
         'PASSWORD': 'P@ssw0rd',
         'HOST': '172.22.235.5',
         'PORT': '1433',
-    }
+        'OPTIONS': {
+              'driver':'SQL Server Native Client 11.0',
+              'MARS_Connection': True,
+
+         },
+    },
 }
 
+DATABASE_CONNECTION_POOLING = False
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
