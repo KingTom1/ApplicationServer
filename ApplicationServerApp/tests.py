@@ -6,8 +6,11 @@ django.setup()
 from ApplicationServerApp.models import User
 # c1 = User('',name='yangjian',accountNumber='123',password='123456',status='1',createTime='2019-4-1')
 user = User()
-print(user)
-user.name = 'lc'
+import json
+from django.core import serializers
+# username = User.objects.filter(name='lc')
+# print(json.loads(serializers.serialize("json", username)))
+user.name = 'lc123456'
 user.accountNumber = '123'
 user.password = '123456'
 user.status = '1'
