@@ -19,5 +19,5 @@ from ApplicationServerApp import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^Login/', views.Login),
+    url(r'^user/login/', views.Login),
 ]

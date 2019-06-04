@@ -11,9 +11,7 @@ def md5(username):
 
 def Login(request):
     data = {
-        'code': 1000,
-        'status': 1,
-        'error': 0,
+        'code': 20000,
     }
     try:
         username = request.POST.get('username')
@@ -24,14 +22,9 @@ def Login(request):
         results = User.objects.filter(name=username,password=password)
         print(results)
         if results:
-            token = md5(username)
-            data['token']=token
+            data['data'] = {"token": "editor-token"}
         else:
-            data['error']=1
-            data['status']=0
-            data['message']='用户名或者密码错误'
+            data['data']='用户名或者密码错误'
     except:
-        data['error']=1
-        data['status']=0
-        data['message']='异常'
+        data['token']='异常'
     return JsonResponse(data)
